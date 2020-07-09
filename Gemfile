@@ -56,3 +56,4 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 #gema para obtener iconos y diseños
 gem 'font-awesome-sass', '~> 5.13.0'
+gem 'simple_form'
