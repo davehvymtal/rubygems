@@ -49,4 +49,8 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
+# convert html to halm
 gem "haml-rails", "~> 2.0"
+#bootstrap gems
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
