@@ -3,6 +3,8 @@ class Course < ApplicationRecord
   validates :title,  presence: true
   #se valida que el campo descipcion tenga mas de 5 caracteres
   validates :description, presence: true, length: { :minimum => 5 }
+  #se agrega relacion con la tabla usuarios
+  belongs_to:user
   def to_s
   title
   end
