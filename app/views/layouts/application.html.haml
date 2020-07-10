@@ -10,6 +10,8 @@
   %body
   //se agrega codigo renderizado de una html aparte
   = render 'layouts/header'
-  %p.notice= notice
-  %p.alert= alert
+  = render 'layouts/messages'
+//se eliminan mensagges defaul y se remplazan por los layouts
+// %p.notice= notice
+//%p.alert= alert
 = yield
