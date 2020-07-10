@@ -59,3 +59,5 @@ gem 'font-awesome-sass', '~> 5.13.0'
 gem 'simple_form'
 #se agrega gema para obtener data default en la DB
 gem 'faker'
+#se agrega gema de autenticacion por correo
+gem 'devise'
