@@ -57,3 +57,5 @@ gem 'jquery-rails'
 #gema para obtener iconos y diseños
 gem 'font-awesome-sass', '~> 5.13.0'
 gem 'simple_form'
+#se agrega gema para obtener data default en la DB
+gem 'faker'
