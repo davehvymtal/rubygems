@@ -2,6 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    //se agrega visualizacion con moviles
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title Rubygems
     = csrf_meta_tags
@@ -15,5 +16,7 @@
 //se eliminan mensagges defaul y se remplazan por los layouts
 // %p.notice= notice
 //%p.alert= alert
+
 .container
+  %p
   = yield

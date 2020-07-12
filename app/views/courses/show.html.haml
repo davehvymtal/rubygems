@@ -1,12 +1,10 @@
-%p#notice= notice
+//se agrega link de index del path de cursos
+= link_to 'Courses', courses_path
+\/
+//se agrega link de index del path de cursos
+= link_to @course.title, courses_path(@course)
+%P
+//se renderiza el arhivo couse.halm se envia por parametro la informacion del curso
+= render 'courses/course', course: @course
 
-%p
-  %b Title:
-  = @course.title
-%p
-  %b Description:
-  = @course.description
 
-= link_to 'Edit', edit_course_path(@course)
-\|
-= link_to 'Back', courses_path

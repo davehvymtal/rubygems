@@ -1,12 +1,74 @@
-%h1 
-  Home#index
-  %p Find me in app/views/home/index.html.erb
-.fa.fa-flag
-.fab.fa-amazon
-= link_to root_path, class: 'btn btn-success' do
-  .fa.fa-home
-  Homepage
 
-= link_to courses_path, class: 'btn btn-success' do
-  .fa.fa-home
-  cursos
+.jumbotron
+  //tamaño del text de 1 a 4 donde 4 es el mas pequeño y 1 el mas grande
+  .display-4
+    what do you want to leanr today?
+  //salto de linea del 1 al 5 donde 5 es el mas grande y 1 el mas pequeño
+  .p-4
+  //se agrega busqueda por texto
+  .form-inline.my-2.my-lg-0
+    //se envia por metodo get el texto escrito en el buscador, para pintar el courses_path card
+    = form_tag(courses_path, method: :get) do
+      .input-group
+        = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control-sm'
+        %span.input-group-append
+          %button.btn.btn-primary.btn-sm{:type => "submit"}
+            %span.fa.fa-search{"aria-hidden" => "true"}
+
+//se agrega grupo de datos principales
+.card-group
+  .card.card-body
+    %h1
+      .fa.fa-graduation-cap
+    //se cuentan cuantos cursos hay registrados
+    = Course.count
+    online courses
+    .row
+    Explore a variety of fresh topics
+  .card.card-body
+    %h1
+      .fa.fa-chalkboard-teacher
+    //se realiza conteo de usuarios que han creado cursos (tutores)
+    = Course.distinct.count(:user_id)
+    expert instructors
+    .row
+    Find the right instructor for you
+  .card.card-body
+    %h1
+      .fa.fa-user-graduate
+    //contero de usuarios resgistrados en la BD
+    = User.count
+    active learners
+    .row
+    Join the knowledge sharing community
+  .card.card-body
+    %h1
+      .fa.fa-infinity
+    Lifetime access
+    .row
+    Learn on your schedule
+
+%hr
+%h2
+  Popular Courses
+.card-columns
+  - @courses.each do |course|
+    //se recorre curso por curso y se renderiza segun el _course.html.haml
+    = render 'courses/course', course: course
+
+%hr
+%h2
+  Top Rated Courses
+.card-columns
+  - @courses.each do |course|
+    //se recorre curso por curso y se renderiza segun el _course.html.haml
+    = render 'courses/course', course: course
+
+%hr 
+%h2
+  Latest Courses
+.card-columns
+  - @latest_courses.each do |course|
+    //se recorre curso por curso y se renderiza segun el _course.html.haml
+    = render 'courses/course', course: course
+%hr
