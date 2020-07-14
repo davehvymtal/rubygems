@@ -1,0 +1,4 @@
+.card-columns
+  - @users.each do |user|
+    //se recorre usuario por usuario y se renderiza segun el _ssers.html.haml
+    = render 'users/user', user: user

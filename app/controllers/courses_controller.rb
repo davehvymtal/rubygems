@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
+  #si el usuario no esta autenticado redirige al index
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /courses
   # GET /courses.json
  #def index

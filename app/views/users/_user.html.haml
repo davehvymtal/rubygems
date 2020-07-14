@@ -1,0 +1,35 @@
+//estilo card
+.card
+  //titulo del estilo card
+  .card-header
+    //icono user
+    .fa.fa-user
+    //se agrega link en el nombre del curso
+    = user.email
+  //parte inferior del estilo card
+  .card-footer
+    //se realiza formateo de la fecha
+    signed up
+    = time_ago_in_words(user.created_at)
+    ago
+  .card-footer
+    = 'sign_in_count'.humanize
+    = user.sign_in_count
+    .row
+    = 'current_sign_in_at'.humanize
+    = user.current_sign_in_at
+    .row
+    = 'last_sign_in_at'.humanize
+    = user.last_sign_in_at
+    .row
+    = 'current_sign_in_ip'.humanize
+    = user.current_sign_in_ip
+    .row
+    = 'last_sign_in_ip'.humanize
+    = user.last_sign_in_ip
+  .card-footer
+  Confirmed Email?
+  - if user.confirmed_at.present?
+    .badge.badge-success Yes
+  - else
+    .badge.badge-danger NO
