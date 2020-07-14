@@ -10,4 +10,7 @@ class Course < ApplicationRecord
   end
   #se asocia que el richtext es para description
   has_rich_text :description
+  #se agrega asociacion del friendly ID es el campo titulo de los cursos
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 end

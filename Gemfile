@@ -61,3 +61,5 @@ gem 'simple_form'
 gem 'faker'
 #se agrega gema de autenticacion por correo
 gem 'devise'
+#se agrega gema para mejorar los ids de las url a stings
+gem 'friendly_id', '~> 5.2.4'
