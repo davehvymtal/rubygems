@@ -63,3 +63,5 @@ gem 'faker'
 gem 'devise'
 #se agrega gema para mejorar los ids de las url a stings
 gem 'friendly_id', '~> 5.2.4'
+#se agrega gema para hacer consultas en la BD con formularios https://github.com/activerecord-hackery/ransack
+gem 'ransack'

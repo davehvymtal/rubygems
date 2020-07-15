@@ -1,4 +1,42 @@
 .card-columns
-  - @users.each do |user|
-    //se recorre usuario por usuario y se renderiza segun el _ssers.html.haml
-    = render 'users/user', user: user
+    - @users.each do |user|
+        //se recorre usuario por usuario y se renderiza segun el _users.html.haml
+        = render 'users/user', user: user
+
+.form-inline
+    = search_form_for @q do |f|
+        //se declara filtro por email *_cont contains value
+        = f.search_field :email_cont, placeholder: 'email'
+        //se declara filtro por conteo de inicios de session *_eq equal
+        = f.search_field :sign_in_count_eq, placeholder: 'sign in count'
+        //se declara filtro por correo o por conteo de inicio de sesion 
+        = f.search_field :email_or_sign_in_count_eq, placeholder: 'email or sign in count'
+        //submit es para hacer las busqueda
+        = f.submit
+    .ml-2
+    = link_to 'refresh', users_path
+
+%table.table.table-bordered
+    %thead
+        %tr
+            %th id
+            //sort_lin sirve para ordenar alfabeticamente
+            %th= sort_link(@q, :email)
+            %th created_at
+            %th= 'sign_in_count'.humanize
+            %th= 'current_sign_in_at'.humanize
+            %th= 'last_sign_in_at'.humanize
+            %th= 'current_sign_in_ip'.humanize
+            %th= 'last_sign_in_ip'.humanize
+    %tbody
+        //se imprimen los usuarios segun el filtro
+        - @users.each do |user|
+            %tr
+                %td= user.id
+                %td= user.email
+                %td= user.created_at
+                %td= user.sign_in_count
+                %td= user.current_sign_in_at
+                %td= user.last_sign_in_at
+                %td= user.current_sign_in_ip
+                %td= user.last_sign_in_ip
