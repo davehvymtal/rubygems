@@ -11,7 +11,10 @@ class CoursesController < ApplicationController
     if params[:title]
       @courses = Course.where('title ILIKE ?', "%#{params[:title]}%") #case-insensitive
     else
-      @courses = Course.all
+      #@courses = Course.all .all funciona para obtener todos los registros de la tabla courses
+      #Se agrega consulta y filtros ransack
+      @q = Course.ransack(params[:q])
+      @courses = @q.result.includes(:user)#(distinct: true)
     end
   end
 

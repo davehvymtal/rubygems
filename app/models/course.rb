@@ -13,4 +13,15 @@ class Course < ApplicationRecord
   #se agrega asociacion del friendly ID es el campo titulo de los cursos
   extend FriendlyId
   friendly_id :title, use: :slugged
+  
+  #Se agregan vectores con constantes para listas desplegables, lenguaje y los niveles.
+  LANGUAGES = [:"English", :"Russian", :"Polish", :"Spanish"]
+  def self.languages
+    LANGUAGES.map { |language| [language, language] }
+  end
+
+  LEVELS = [:"All levels", :"Beginner", :"Intermediate", :"Advanced"]
+  def self.levels
+    LEVELS.map { |level| [level, level] }
+  end
 end
