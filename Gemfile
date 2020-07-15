@@ -65,3 +65,6 @@ gem 'devise'
 gem 'friendly_id', '~> 5.2.4'
 #se agrega gema para hacer consultas en la BD con formularios https://github.com/activerecord-hackery/ransack
 gem 'ransack'
+#se agrega gema para tener traza de actividades por usuarios
+gem 'public_activity'
+

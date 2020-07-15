@@ -24,4 +24,8 @@ class Course < ApplicationRecord
   def self.levels
     LEVELS.map { |level| [level, level] }
   end
+  
+  #se agregan lineas de configuracion del modelo activity
+  include PublicActivity::Model
+  tracked owner: Proc.new{ |controller, model| controller.current_user}
 end

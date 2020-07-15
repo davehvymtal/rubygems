@@ -25,6 +25,11 @@
           = link_to users_path, class: 'nav-link' do
             .fa.fa-user
             Users
+        /se agrega icono de actividades que redirige al home_activity_path
+        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(home_activity_path)}"}
+          = link_to home_activity_path, class: 'nav-link' do
+            .fa.fa-bell
+            Activity
       /se agrega filtro en head con ransack en cursos
       = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
         .input-group
