@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
   #se agregan validacion de los campos sean obligatorios
-  validates :title,  presence: true
+  validates :title, :short_description, :language, :price, :level,  presence: true
   #se valida que el campo descipcion tenga mas de 5 caracteres
   validates :description, presence: true, length: { :minimum => 5 }
   #se agrega relacion con la tabla usuarios

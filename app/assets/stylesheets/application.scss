@@ -4,3 +4,6 @@
 //se agrega import para el actiontext
 @import "./actiontext.scss";
 //body { background: #f8f0e6; }
+//se agrega logica que elimina los iconos de OK o no OK de un input-text
+.form-control.is-invalid { background-image: none;}
+.form-control.is-valid{ background-image: none;}

@@ -7,6 +7,11 @@
     = f.input :title
     = f.label :description
     = f.rich_text_area :description
-
+    %small= f.error :description, class: 'text-danger'
+    //se agregan las nuevas columnas de la tabla courses y se agregan opciones de lista desplegable
+    = f.input :short_description
+    = f.input :language, collection: ["English","Polish","Español"]
+    = f.input :level, collection: ["Beginner","Intermediate","Advanced"]
+    = f.input :price
   .form-actions
     = f.button :submit
