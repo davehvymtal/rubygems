@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     #@users = User.all.order(created_at: :desc)
     #se agrega filtro de usuarios por parametros de la gema ransanck
     @q = User.ransack(params[:q])
+    #en la varable users queda el resultado filtrado
     @users = @q.result(distinct: true)
   end
 end

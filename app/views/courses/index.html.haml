@@ -11,7 +11,9 @@
     
 .row
   .col-md-2
-    = search_form_for @q do |f|
+    /= search_form_for @q do |f|
+    /se agrega filtro por medio de ransack del header
+    = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
       = f.label :title
       = f.search_field :title_cont, placeholder: 'Title', class: 'form-control form-control-sm'
       = f.label :description

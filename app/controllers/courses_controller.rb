@@ -8,14 +8,18 @@ class CoursesController < ApplicationController
   #  @courses = Course.all
   #end
   def index
-    if params[:title]
-      @courses = Course.where('title ILIKE ?', "%#{params[:title]}%") #case-insensitive
-    else
+    #if params[:title]
+    #  @courses = Course.where('title ILIKE ?', "%#{params[:title]}%") #case-insensitive
+    #else
       #@courses = Course.all .all funciona para obtener todos los registros de la tabla courses
       #Se agrega consulta y filtros ransack
-      @q = Course.ransack(params[:q])
-      @courses = @q.result.includes(:user)#(distinct: true)
-    end
+      #@q = Course.ransack(params[:q])
+      #@courses = @q.result.includes(:user)#(distinct: true)
+    #end
+      #se agrega ransack de cursos para los filtros por medio del search bar del hearder. se envia path
+      @ransack_courses = Course.ransack(params[:courses_search], search_key: :courses_search) #navbar search
+      @courses = @ransack_courses.result.includes(:user)
+      
   end
 
   # GET /courses/1
