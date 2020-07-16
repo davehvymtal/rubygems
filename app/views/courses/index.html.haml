@@ -1,7 +1,10 @@
-%h1 
-  Courses:
-  //se realiza conteo de los cursos de la tabla curso
-  = @courses.count
+/se agrega visualizacion de las actividades
+%h3
+  .text-center 
+    Activity
+    .badge.badge-info
+      =@courses.count
+%p
   
 //se grafica cada curso en un diseño card
 //.card-columns

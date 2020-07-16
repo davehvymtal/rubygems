@@ -1,3 +1,11 @@
+/se agrega visualizacion de los usuarios
+%h3
+    .text-center 
+        Users
+        .badge.badge-info
+            =@users.count
+%p
+
 .card-columns
     - @users.each do |user|
         //se recorre usuario por usuario y se renderiza segun el _users.html.haml
