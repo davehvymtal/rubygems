@@ -69,4 +69,4 @@ gem 'ransack'
 gem 'public_activity'
 #se agrega gema para crear roles en la aplicacion
 gem 'rolify'
-
+gem "pundit"
