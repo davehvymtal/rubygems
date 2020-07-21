@@ -13,5 +13,5 @@ class Role < ApplicationRecord
   scopify
   #se agrega validacion del name que se unico y obligatorio
   validates :name, presence: true
-  valudates_uniqueness_of :name
+  validates_uniqueness_of :name
 end
