@@ -33,3 +33,9 @@
     .badge.badge-success Yes
   - else
     .badge.badge-danger NO
+  /se agrega visualizacion de los roles del usuario
+  .card-footer
+    - user.roles.each do |role|
+      .badge.badge-info
+        = role.name
+    = link_to 'Edit Roles', edit_user_path(user), class: 'btn btn-sm btn-warning'

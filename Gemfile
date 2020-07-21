@@ -67,4 +67,6 @@ gem 'friendly_id', '~> 5.2.4'
 gem 'ransack'
 #se agrega gema para tener traza de actividades por usuarios
 gem 'public_activity'
+#se agrega gema para crear roles en la aplicacion
+gem 'rolify'
 

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :courses
-  #se agrega ruta de user index
-  resources :users
+  #se agrega ruta de user, para tener funcion de index, edit, show y update
+  resources :users, only: [:index, :edit, :show, :update]
   get 'home/index'
   #se agrega ruta para declarar el home_activity_path
   get 'home/activity'
