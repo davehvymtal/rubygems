@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   #si el usuario no esta autenticado redirige al index
-  before_action :set_user, :only => [:edit, :update]
+  #despues de asingar el usuario unicamente puede ejecutar las siguientes funciones
+  before_action :set_user, :only => [:show, :edit, :update]
+  
   def index
     #@users = User.all.order(created_at: :desc)
     #se agrega filtro de usuarios por parametros de la gema ransanck
@@ -8,11 +10,14 @@ class UsersController < ApplicationController
     #en la varable users queda el resultado filtrado
     @users = @q.result(distinct: true)
   end
+  
+  def show
+  end
+  
   #edicion sin funcionalidad
   def edit 
     authorize @user
   end
-  
 
   def update
     #se agrega validacion de autorizacion police
@@ -25,9 +30,10 @@ class UsersController < ApplicationController
   end
   
   private
-
+  
+  #se modifica funcionalidad se consulta el ID por el frendly id email
   def set_user
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
   end
   
   #funcion de los parametros obligatorios de usuarios

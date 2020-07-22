@@ -15,6 +15,10 @@ class User < ApplicationRecord
   end
   has_many :courses
   
+  #se agrega asociacion del friendly ID es el campo emial de los usuarios
+  extend FriendlyId
+  friendly_id :email, use: :slugged
+  
   #se agrega role por default
   after_create :assign_default_role
   #se asigna el rol studiante por default
