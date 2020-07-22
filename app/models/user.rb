@@ -38,12 +38,16 @@ class User < ApplicationRecord
   #se agrega validacion de autorizacion police
   validate :must_have_a_role, on: :update
   
+  #se crea el metodo online que valida si el campo update_at esta actualizado hace 2 minutos
+  def online?
+    updated_at > 2.minutes.ago
+  end
+  
   private
   #se agrega metodo que valida si el usuario tiene almenos un rol asignado
   def must_have_a_role
     unless roles.any?
       errors.add(:roles, "Must Have at least one role")
     end
-    
   end
 end

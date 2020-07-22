@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
  #se agrega validacion de autenticacion de usuarios en el controlador de la aplicacion
   before_action :authenticate_user!
+  #se crea variable donde estara el user activity
+  after_action :user_activity
+  
   #se agrega referencia gem pundit
   include Pundit
   #se agrega mensaje de error generico
@@ -16,6 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  #se crea metodo que devuelve el valor de touch del usuario
+  def user_activity
+   current_user.try :touch
+  end
+  
  #se agrega metodo de usuario no autorizado con mensaje personalizado
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
