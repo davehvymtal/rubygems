@@ -10,10 +10,13 @@ class UsersController < ApplicationController
   end
   #edicion sin funcionalidad
   def edit 
+    authorize @user
   end
   
-  # funcion update
+
   def update
+    #se agrega validacion de autorizacion police
+    authorize @user
     if @user.update(user_params)
       redirect_to users_path, notice: 'User roles were successfully updated.'
     else

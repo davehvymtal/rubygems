@@ -4,8 +4,8 @@
   %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
-    /se agrega validacion de que usuario actual sea rol teacher para ver el header
-    - if current_user && current_user.has_role?(:teacher)
+    /se agrega validacion de que usuario actual sea rol teacher, student, admin para ver el header
+    - if current_user &&(current_user.has_role?(:teacher) || current_user.has_role?(:student)|| current_user.has_role?(:admin))
       %ul.navbar-nav.mr-auto
         %li.nav-item{class: "#{'active font-weight-bold' if current_page?(root_path)}"}
           = link_to root_path, class: 'nav-link' do

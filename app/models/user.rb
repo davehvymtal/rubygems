@@ -30,4 +30,16 @@ class User < ApplicationRecord
       self.add_role(:teacher)
     end
   end
+  
+  #se agrega validacion de autorizacion police
+  validate :must_have_a_role, on: :update
+  
+  private
+  #se agrega metodo que valida si el usuario tiene almenos un rol asignado
+  def must_have_a_role
+    unless roles.any?
+      errors.add(:roles, "Must Have at least one role")
+    end
+    
+  end
 end

@@ -37,8 +37,10 @@
           .fa.fa-chalkboard-teacher
           //se agrega username viene del split del correo de la tabla usuario
           = course.user.username
-  //se agrega otro footer de estilo card para likear los botones
-  .card-footer
+  /se agrega validacion de politicas si el usuarios puede ver los links de edicion, show, y destroy
+  - if policy(course).edit?
+    //se agrega otro footer de estilo card para likear los botones
+    .card-footer
     = link_to 'Show', course, class: 'btn btn-sm btn-primary'
-    = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning'
+    = link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning' 
     = link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
