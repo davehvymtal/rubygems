@@ -1,0 +1,12 @@
+//se agrega link de index del path de cursos
+= link_to 'Couses', courses_path
+\/
+//se agrega link de index del path de cursos
+= link_to @lesson.course.title, course_path(@lesson.course)
+\/
+//se agrega link de index del path de cursos
+= link_to @lesson.title, lesson_path(@lesson.course)
+%P
+= render 'lessons/lesson', lesson: @lesson
+
+= link_to 'Back', course_path(@lesson.course)

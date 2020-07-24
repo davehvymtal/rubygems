@@ -1,10 +1,14 @@
 //se agrega link de index del path de cursos
 = link_to 'Courses', courses_path
 \/
-//se agrega link de index del path de cursos
+//se agrega link de index del path de cursos cargando un curso en especifico
 = link_to @course.title, courses_path(@course)
 %P
-//se renderiza el arhivo couse.halm se envia por parametro la informacion del curso
-= render 'courses/course', course: @course
-
-
+.row
+  .col-lg-6
+    //se renderiza el arhivo course.halm se envia por parametro la informacion del curso
+    = render 'courses/course', course: @course
+  .col-lg-6
+    = link_to 'Add Lesson', new_lesson_path(course_id: @course.id)
+    - @lessons.each do |lesson|
+      = render 'lessons/lesson', lesson: lesson

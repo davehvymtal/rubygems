@@ -14,6 +14,10 @@
     .text-center
       //se formatea el precio con valor de pesos $ y puntos de unidad
       = number_to_currency(course.price)
+  .card-footer
+    /se agrega conteo de cuantas lecciones tiene el curso seleccionado
+    .fa.fa-book
+      = course.lessons.count
   //parte inferior del estilo card
   .card-footer
     .row

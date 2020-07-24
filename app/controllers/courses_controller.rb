@@ -29,6 +29,8 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    #se crea variable de lessons donde estan las lecciones de los cursos
+    @lessons = @course.lessons
   end
 
   # GET /courses/new
