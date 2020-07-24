@@ -1,11 +1,15 @@
 .card
   .card-header
     = link_to lesson.title, lesson
-  .card-body
-    = lesson.content
-    = lesson.course
-  .card-footer
-    = link_to 'Edit', edit_lesson_path(lesson), class: 'btn btn-sm btn-warning' 
-    = link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' 
-
+  /se agrega validacion de politicas si el usuario puede ver los datos de la leccion show
+  - if policy(lesson).show?
+    .card-body
+      = lesson.content
+      = lesson.course
+  /se agrega validacion de politicas si el usuario puede ver los links de edicion, y destroy
+  - if policy(lesson).edit?
+    .card-footer
+      = link_to 'Edit', edit_lesson_path(lesson), class: 'btn btn-sm btn-warning' 
+      = link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' 
+%p
   

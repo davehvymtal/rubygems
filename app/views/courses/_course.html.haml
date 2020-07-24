@@ -39,8 +39,8 @@
         .text-right
           // icono de teacher
           .fa.fa-chalkboard-teacher
-          //se agrega username viene del split del correo de la tabla usuario
-          = course.user.username
+          //se agrega username viene del split del correo de la tabla usuario, se agrega link al usuario
+          = link_to course.user.username, user_path(course.user)
   /se agrega validacion del current user
   - if current_user
     /se agrega validacion de politicas si el usuarios puede ver los links de edicion, show, y destroy
