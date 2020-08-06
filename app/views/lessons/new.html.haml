@@ -1,6 +1,8 @@
-%h1 New lesson
-
-= render 'form'
-
-//= link_to 'Back', lessons_path se agrega direccionamiento al nuevo path /COURSES/COURSE_FRIENDLYID
-= link_to 'Back', courses_path(@course)
+.card.shadow
+  .card-header
+    %h1 New lesson
+  .card-body
+    = render 'form'
+  .card.footer
+    //= link_to 'Back', lessons_path se agrega direccionamiento al nuevo path /COURSES/COURSE_FRIENDLYID
+    = link_to 'Back To Course', course_path(@course)

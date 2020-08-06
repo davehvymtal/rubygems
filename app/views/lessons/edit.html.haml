@@ -1,8 +1,11 @@
-%h1 Editing lesson
-
-= render 'form'
-/se agrega direccionamiento al nuevo path COURSES/COURSE_FRIENDLYID
-= link_to 'Show Lessons', course_lesson_path(@course, @lesson)
-\|
-//se agrega redireccionamiento al curso en caso de dar click en back
-= link_to 'Back To Courses', course_path(@lesson.course)
+.card.shadow
+  .card-header
+    %h1 Editing lesson
+  .card-body
+    = render 'form'
+  .card.footer
+    /se agrega direccionamiento al nuevo path COURSES/COURSE_FRIENDLYID
+    = link_to 'Show Lessons', course_lesson_path(@course, @lesson)
+    \|
+    //se agrega redireccionamiento al curso en caso de dar click en back
+    = link_to 'Back To Courses', course_path(@lesson.course)

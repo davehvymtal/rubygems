@@ -16,11 +16,10 @@ class LessonsController < ApplicationController
 
   # GET /lessons/new
   def new
-    #se agrega politica de acceso a la funcion
-    authorize @lesson
     @lesson = Lesson.new
     #se agrega declaracion del obejto curso segun el friendly id enviado por parametro
     @course = Course.friendly.find(params[:course_id])
+
   end
 
   # GET /lessons/1/edit
@@ -34,6 +33,8 @@ class LessonsController < ApplicationController
     #se agrega declaracion del obejto curso segun el friendly id enviado por parametro
     @course = Course.friendly.find(params[:course_id])
     @lesson.course_id = @course.id
+    #se agrega politica de acceso a la funcion
+    authorize @lesson
     respond_to do |format|
       if @lesson.save
         #cuando se crea una nueva leccion se redije al path nuevo de CURSOS/CURSO_FRIENDLYID donde se listan las lecciones
@@ -70,7 +71,8 @@ class LessonsController < ApplicationController
 
     @lesson.destroy
     respond_to do |format|
-      format.html { redirect_to lessons_url, notice: 'Lesson was successfully destroyed.' }
+      #cuando se elimina una leccion se devuelve ap path del curso seleccionado
+      format.html { redirect_to course_path(@course), notice: 'Lesson was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

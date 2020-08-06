@@ -21,9 +21,13 @@ class LessonPolicy < ApplicationPolicy
     @record.course.user_id == @user.id  end
   
   def new?
+    
   end
   
   def create?
+    #solo el creador del curso puede agregar lecciones
+    @record.course.user_id == @user.id
+
   end
   
   #funcion destroy solo peude ser ejecutada por el id del usuario que creo la leccion
