@@ -1,6 +1,6 @@
 .card
   .card-header
-  /se agrega objeto @courses al path
+    /se agrega objeto @courses al path
     = link_to lesson.title, course_lesson_path(@course, lesson)
   /se agrega validacion de politicas si el usuario puede ver los datos de la leccion show
   - if policy(lesson).show?
