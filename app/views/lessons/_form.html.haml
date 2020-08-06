@@ -1,5 +1,6 @@
 -# frozen_string_literal: true
-= simple_form_for(@lesson) do |f|
+/se envia por parametros obejeto curso y objeto lesson
+= simple_form_for([@course, @lesson]) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 

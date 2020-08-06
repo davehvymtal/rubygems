@@ -9,6 +9,7 @@
     //se renderiza el arhivo course.halm se envia por parametro la informacion del curso
     = render 'courses/course', course: @course
   .col-lg-6
-    = link_to 'Add Lesson', new_lesson_path(course_id: @course.id)
+    //cuando se da clic en add lesson se dirige al nuevo path llamado COURSES/COURSE_FRIENDLYID/NEW
+    = link_to 'Add Lesson', new_course_lesson_path(@course, @lesson)
     - @lessons.each do |lesson|
       = render 'lessons/lesson', lesson: lesson

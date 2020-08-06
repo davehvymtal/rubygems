@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  # se agrega variable lessons
-  resources :lessons
   
   devise_for :users
   
-  resources :courses
+  #se agregan las lecciones dentro de los cursos
+  resources :courses do
+    # se agrega variable lessons
+    resources :lessons
+  end
   
   #se agrega ruta de user, para tener funcion de index, edit, show y update
   resources :users, only: [:index, :edit, :show, :update]
