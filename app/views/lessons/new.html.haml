@@ -1,8 +1,19 @@
+//se agrega link de index del path de cursos
+= link_to 'Courses', courses_path
+\/
+//se agrega link de index del path de cursos
+= link_to @course.title, course_path(@course)
+\/
+New
+%P
+
 .card.shadow
   .card-header
-    %h1 New lesson
+    %h3
+      .far.fa-check-square
+      New lesson
   .card-body
     = render 'form'
-  .card.footer
+  .card-footer
     //= link_to 'Back', lessons_path se agrega direccionamiento al nuevo path /COURSES/COURSE_FRIENDLYID
     = link_to 'Back To Course', course_path(@course)

@@ -1,11 +1,21 @@
-.card.shadow
+//se agrega link de index del path de cursos
+= link_to 'Courses', courses_path
+\/
+//se agrega link de index del path de cursos
+= link_to @course.title, course_path(@course)
+\/
+Editing
+%p
+.card
   .card-header
-    %h1 Editing lesson
+    %h3
+      .far.fa-check-square
+      Editing Lesson
   .card-body
     = render 'form'
-  .card.footer
+  .card-footer
     /se agrega direccionamiento al nuevo path COURSES/COURSE_FRIENDLYID
     = link_to 'Show Lessons', course_lesson_path(@course, @lesson)
-    \|
+    \/
     //se agrega redireccionamiento al curso en caso de dar click en back
     = link_to 'Back To Courses', course_path(@lesson.course)

@@ -6,10 +6,11 @@
             =@users.count
 %p
 
-.card-columns
-    - @users.each do |user|
-        //se recorre usuario por usuario y se renderiza segun el _users.html.haml
-        = render 'users/user', user: user
+/se comenta card de usuarios
+/.card-columns
+/    - @users.each do |user|
+/        //se recorre usuario por usuario y se renderiza segun el _users.html.haml
+/        = render 'users/user', user: user
 
 .form-inline
     = search_form_for @q do |f|
@@ -36,6 +37,8 @@
             %th= 'last_sign_in_at'.humanize
             %th= 'current_sign_in_ip'.humanize
             %th= 'last_sign_in_ip'.humanize
+            %th= 'Confirmed?'
+            %th= 'Roles'
     %tbody
         //se imprimen los usuarios segun el filtro
         - @users.each do |user|
@@ -48,3 +51,11 @@
                 %td= user.last_sign_in_at
                 %td= user.current_sign_in_ip
                 %td= user.last_sign_in_ip
+                %td= user.confirmed?
+                %td
+                    - user.roles.each do |role|
+                        .badge.badge-info
+                            = role.name
+                    /si el usuario no tiene permisos de edicion no visualiza el boton de editar roles
+                    - if policy(user).edit?
+                        = link_to 'Edit Roles', edit_user_path(user), class: 'btn btn-sm btn-warning'
