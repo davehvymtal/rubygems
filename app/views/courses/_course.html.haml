@@ -12,8 +12,9 @@
     %small= simple_format(course.short_description)
   .card-footer
     .text-center
+      = enrollment_button(course)
       //se formatea el precio con valor de pesos $ y puntos de unidad
-      = number_to_currency(course.price)
+      /= number_to_currency(course.price)
   .card-footer
     /se agrega conteo de cuantas lecciones tiene el curso seleccionado
     .fa.fa-tasks

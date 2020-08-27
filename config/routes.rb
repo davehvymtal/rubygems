@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :courses do
     # se agrega variable lessons
     resources :lessons
+    # se agrega variable enrollments solo para new y create
+    resources :enrollments, only: [:new, :create]
   end
   
   #se agrega ruta de user, para tener funcion de index, edit, show y update
