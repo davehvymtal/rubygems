@@ -6,13 +6,13 @@
   //salto de linea del 1 al 5 donde 5 es el mas grande y 1 el mas pequeño
   .p-4
   /se agrega cuadro de busqueda por ransack
-  = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
-    .input-group
-      = f.search_field :title_cont, class: 'form-control-sm', style: 'float: left; width: 150px; ', placeholder: 'Find a course', :autocomplete => :off
-      %span.input-group-append
-        %button.btn.btn-primary.btn-sm{:type => "submit"}
-          %span.fa.fa-search{"aria-hidden" => "true"}
-//se agrega busqueda por texto
+  /= search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
+  /  .input-group
+  /    = f.search_field :title_cont, class: 'form-control-sm', style: 'float: left; width: 150px; ', placeholder: 'Find a course', :autocomplete => :off
+  /    %span.input-group-append
+  /      %button.btn.btn-primary.btn-sm{:type => "submit"}
+  /        %span.fa.fa-search{"aria-hidden" => "true"}
+  //se agrega busqueda por texto
 /  .form-inline.my-2.my-lg-0
 /    //se envia por metodo get el texto escrito en el buscador, para pintar el courses_path card
 /    = form_tag(courses_path, method: :get) do
