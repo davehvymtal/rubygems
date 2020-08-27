@@ -12,6 +12,10 @@ class Course < ApplicationRecord
   #se agrega relacion la tabla lessons con has_many hace referencia de un curso tiene muchas lecciones
   has_many :lessons, dependent: :destroy
   #-------------------------------------------------------------------------------
+  #se agrega relacion la tabla enrollments con has_many hace referencia de un curso tiene muchas enrolamientos
+  has_many :enrollments
+  #-------------------------------------------------------------------------------
+  
   
   def to_s
   title

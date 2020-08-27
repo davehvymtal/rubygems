@@ -4,7 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :devise, :confirmable
 
-  rolify 
+  rolify
+  #-------Relaciones de la tabla users------------------------------------------
+  #-------------------------------------------------------------------------------
+  #se agrega relacion la tabla courses con has_many hace referencia de un usario tiene muchos cursos
+  has_many :courses
+  #se agrega relacion la tabla enrollments con has_many hace referencia de un usario tiene muchas enrolamientos
+  has_many :enrollments
+  #-------------------------------------------------------------------------------
   
   def to_s
     email
@@ -13,7 +20,6 @@ class User < ApplicationRecord
   def username
     self.email.split(/@/).first
   end
-  has_many :courses
   
   #se agrega asociacion del friendly ID es el campo emial de los usuarios
   extend FriendlyId

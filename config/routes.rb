@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :enrollments
   devise_for :users
   
   #se agregan las lecciones dentro de los cursos

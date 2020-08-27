@@ -1,4 +1,10 @@
-.card.shadow
+- content_for :title do
+  Corsego
+  \|
+  Editing
+  = @course.title
+  
+.card
   .card-header
     %h3
       .fa.fa-graduation-cap

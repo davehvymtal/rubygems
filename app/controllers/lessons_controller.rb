@@ -32,6 +32,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new(lesson_params)
     #se agrega declaracion del obejto curso segun el friendly id enviado por parametro
     @course = Course.friendly.find(params[:course_id])
+    # se realiza asingacion del campo course_id
     @lesson.course_id = @course.id
     #se agrega politica de acceso a la funcion
     authorize @lesson
