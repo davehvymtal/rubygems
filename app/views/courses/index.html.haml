@@ -1,7 +1,12 @@
+- content_for :title do
+  Corsego
+  \|
+  All course
+  
 /se agrega visualizacion de las actividades
 %h3
   .text-center 
-    Activity
+    Courses
     .badge.badge-info
       =@courses.count
 %p
@@ -41,4 +46,9 @@
     .card-columns
       - @courses.each do |course|
         = render 'courses/course', course: course
+    /!= pagy_nav(@pagy)
+    != pagy_bootstrap_nav(@pagy)
+    /!= pagy_bootstrap_nav_js(@pagy)
+    /!= pagy_bootstrap_combo_nav_js(@pagy)
+
 %br

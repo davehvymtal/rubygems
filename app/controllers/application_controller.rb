@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   #se crea variable donde estara el user activity
   after_action :user_activity
   
+  include Pagy::Backend
+
   #se agrega referencia gem pundit
   include Pundit
   #se agrega mensaje de error generico

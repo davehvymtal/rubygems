@@ -73,3 +73,4 @@ gem 'rolify'
 gem "pundit"
 #se agrega gema para notificacion de errores por correo
 gem 'exception_notification'
+gem 'pagy'

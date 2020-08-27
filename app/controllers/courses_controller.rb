@@ -19,7 +19,9 @@ class CoursesController < ApplicationController
     #- if current_user.has_role?(:admin)
         #se agrega ransack de cursos para los filtros por medio del search bar del hearder. se envia path
         @ransack_courses = Course.ransack(params[:courses_search], search_key: :courses_search) #navbar search
-        @courses = @ransack_courses.result.includes(:user)
+        #@courses = @ransack_courses.result.includes(:user)
+        @pagy, @courses = pagy(@ransack_courses.result.includes(:user))
+
     #  else
     #    redirect_to root_path, alert:'You dont hace access'
     #end
