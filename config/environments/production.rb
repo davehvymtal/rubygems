@@ -1,6 +1,16 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "MYDOMAIN.mailgun.org",
+    :user_name => "postmaster@sandbox8cfe41b193cd48cbbfe2698a2a3d7e2a.mailgun.org",
+    :password => "ba7807d0db14e99ae1e7a20bf5546400-7cd1ac2b-e40bce81"
+  }
+
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   email: {
     deliver_with: :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now

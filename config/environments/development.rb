@@ -3,12 +3,17 @@ config.hosts << "462423b50fa14a0dac25c841439373b7.vfs.cloud9.us-east-2.amazonaws
 #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } se configura url de correo 
 config.action_mailer.default_url_options = { host: 'https://462423b50fa14a0dac25c841439373b7.vfs.cloud9.us-east-2.amazonaws.com/' }
   # Settings specified here will take precedence over those in config/application.rb.
+config.cache_classes = false
 
-  # In the development environment your application's code is reloaded on
-  # every request. This slows down response time but is perfect for development
-  # since you don't have to restart the web server when you make code changes.
-  config.cache_classes = false
-
+#config.action_mailer.delivery_method = :smtp
+#config.action_mailer.smtp_settings = {
+#  :authentication => :plain,
+#  :address => "smtp.mailgun.org",
+#  :port => 587,
+#  :domain => "heroku-rubygems.com",
+#  :user_name => "postmaster@sandbox8cfe41b193cd48cbbfe2698a2a3d7e2a.mailgun.org",
+#  :password => "ba7807d0db14e99ae1e7a20bf5546400-7cd1ac2b-e40bce81"
+#}
   # Do not eager load code on boot.
   config.eager_load = false
 
