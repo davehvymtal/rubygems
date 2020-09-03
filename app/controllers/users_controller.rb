@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @q = User.ransack(params[:q])
     #en la varable users queda el resultado filtrado
     @users = @q.result(distinct: true)
+    #se agrega validacion de politicas para index
+    authorize @users
   end
   
   def show
@@ -16,11 +18,12 @@ class UsersController < ApplicationController
   
   #edicion sin funcionalidad
   def edit 
+    #se agrega validacion de politicas para edit
     authorize @user
   end
 
   def update
-    #se agrega validacion de autorizacion police
+    #se agrega validacion de politicas para update
     authorize @user
     if @user.update(user_params)
       redirect_to users_path, notice: 'User roles were successfully updated.'

@@ -2,29 +2,29 @@ class EnrollmentsController < ApplicationController
   before_action :set_enrollment, only: [:show, :edit, :update, :destroy]
   before_action :set_course, only: [:new, :create]
   # GET /enrollments
-  # GET /enrollments.json
   def index    
     @enrollments = Enrollment.all
-    #authorize @enrollments
+    #Se agrega validacion de politicas para index
+    authorize @enrollments
   end
 
   # GET /enrollments/1
-  # GET /enrollments/1.json
   def show
   end
 
   # GET /enrollments/new
   def new
+    #Se agrega validacion de politicas para new
     @enrollment = Enrollment.new
   end
 
   # GET /enrollments/1/edit
   def edit
+    #Se agrega validacion de politicas para edit
     authorize @enrollment
   end
 
   # POST /enrollments
-  # POST /enrollments.json
   def create
     
     if @course.price > 0
@@ -37,8 +37,8 @@ class EnrollmentsController < ApplicationController
   end
 
   # PATCH/PUT /enrollments/1
-  # PATCH/PUT /enrollments/1.json
   def update
+    #Se agrega validacion de politicas para update
     authorize @enrollment
     respond_to do |format|
       if @enrollment.update(enrollment_params)
@@ -52,8 +52,8 @@ class EnrollmentsController < ApplicationController
   end
 
   # DELETE /enrollments/1
-  # DELETE /enrollments/1.json
   def destroy
+    #Se agrega validacion de politicas para destroy
     authorize @enrollment
     @enrollment.destroy
     respond_to do |format|
@@ -75,6 +75,6 @@ class EnrollmentsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def enrollment_params
       #se elimina el campo :price de los parametros ya que se calcula apartir del valor del curso seleccionado, se eliminan cuando se compran:course_id, :user_id,
-      params.require(:enrollment).permit( :rating, :reviews)
+      params.require(:enrollment).permit( :rating, :review)
     end
 end

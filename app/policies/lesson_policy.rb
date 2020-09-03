@@ -5,12 +5,12 @@ class LessonPolicy < ApplicationPolicy
     end
   end
   
-  #funcion show solo peude ser ejecutada por el id del usuario que creo la leccion o por el rol admin
+  #funcion show solo peude ser ejecutada por el id del usuario que creo la leccion o por el rol admin o si el usuario esta enrrolado en el curso
   def show?
-    @user.has_role?(:admin)|| @record.course.user_id == @user.id
+    @user.has_role?(:admin)|| @record.course.user_id == @user.id ||  @record.course.bougth(@user) == false
   end
   
-  #funcion editar solo peude ser ejecutada por el id del usuario que creo la leccion
+  #funcion edit solo peude ser ejecutada por el id del usuario que creo la leccion
   def edit?
     #owner del curso
      @record.course.user_id == @user.id
@@ -30,7 +30,7 @@ class LessonPolicy < ApplicationPolicy
 
   end
   
-  #funcion destroy solo peude ser ejecutada por el id del usuario que creo la leccion
+    #solo el creador del curso puede agregar lecciones
   def destroy?
     @record.course.user_id == @user.id
   end

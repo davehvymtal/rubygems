@@ -15,7 +15,7 @@ class Enrollment < ApplicationRecord
   #se agrega validacion donde el usuario creador del curno no puede enrolarse
   validate :cant_suscribe_to_own_course
   def to_s
-    user.to_s +" " + course.to_s
+    user.to_s + " " + course.to_s
   end
   protected
   def cant_suscribe_to_own_course 
@@ -27,6 +27,4 @@ class Enrollment < ApplicationRecord
       end
     end
   end
-  
-
 end

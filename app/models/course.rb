@@ -44,6 +44,7 @@ class Course < ApplicationRecord
   tracked owner: Proc.new{ |controller, model| controller.current_user}
   
   def bougth(user)
-    self.enrollments.where(user_id: [user.id], course_id: [self.id].empty?)
+    #se realiza validacion si el usuario tiene enrolamiento = false
+    self.enrollments.where(user_id: [user.id], course_id: [self.id]).empty?
   end
 end
