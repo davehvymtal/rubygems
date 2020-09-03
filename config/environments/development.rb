@@ -5,15 +5,6 @@ config.action_mailer.default_url_options = { host: 'https://462423b50fa14a0dac25
   # Settings specified here will take precedence over those in config/application.rb.
 config.cache_classes = false
 
-#config.action_mailer.delivery_method = :smtp
-#config.action_mailer.smtp_settings = {
-#  :authentication => :plain,
-#  :address => "smtp.mailgun.org",
-#  :port => 587,
-#  :domain => "heroku-rubygems.com",
-#  :user_name => "postmaster@sandbox8cfe41b193cd48cbbfe2698a2a3d7e2a.mailgun.org",
-#  :password => "ba7807d0db14e99ae1e7a20bf5546400-7cd1ac2b-e40bce81"
-#}
   # Do not eager load code on boot.
   config.eager_load = false
 

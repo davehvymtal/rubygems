@@ -3,8 +3,9 @@ class EnrollmentsController < ApplicationController
   before_action :set_course, only: [:new, :create]
   # GET /enrollments
   # GET /enrollments.json
-  def index
+  def index    
     @enrollments = Enrollment.all
+    #authorize @enrollments
   end
 
   # GET /enrollments/1
@@ -19,6 +20,7 @@ class EnrollmentsController < ApplicationController
 
   # GET /enrollments/1/edit
   def edit
+    authorize @enrollment
   end
 
   # POST /enrollments
@@ -37,6 +39,7 @@ class EnrollmentsController < ApplicationController
   # PATCH/PUT /enrollments/1
   # PATCH/PUT /enrollments/1.json
   def update
+    authorize @enrollment
     respond_to do |format|
       if @enrollment.update(enrollment_params)
         format.html { redirect_to @enrollment, notice: 'Enrollment was successfully updated.' }
@@ -51,6 +54,7 @@ class EnrollmentsController < ApplicationController
   # DELETE /enrollments/1
   # DELETE /enrollments/1.json
   def destroy
+    authorize @enrollment
     @enrollment.destroy
     respond_to do |format|
       format.html { redirect_to enrollments_url, notice: 'Enrollment was successfully destroyed.' }
