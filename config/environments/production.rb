@@ -3,6 +3,7 @@ Rails.application.configure do
 
 
   config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.default_url_options = { :host => "www.rubygems.com" }
   config.action_mailer.mailgun_settings = {
   		api_key: 'key-46fc4d2313bf27be5accb049936cc3a0',
   		domain: 'sandbox8cfe41b193cd48cbbfe2698a2a3d7e2a.mailgun.org'
