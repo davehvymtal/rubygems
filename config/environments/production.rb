@@ -4,7 +4,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :mailgun
   #config.action_mailer.default_url_options = { :host => "www.rubygems.com" }
-  config.action_mailer.default_url_options = { host: 'https://rubygemsudemy.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'rubygemsudemy.herokuapp.com' }
 
   config.action_mailer.mailgun_settings = {
   		api_key: 'key-46fc4d2313bf27be5accb049936cc3a0',
