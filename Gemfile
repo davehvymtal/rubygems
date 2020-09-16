@@ -77,4 +77,4 @@ gem 'exception_notification'
 #se agrega gema para paginacion
 gem 'pagy'
 #se agrega gema mailgun-ruby para envio de correos
-gem 'mailgun-ruby'
+gem 'mailgun_rails'
