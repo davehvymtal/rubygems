@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: enrollments
+#
+#  id         :bigint           not null, primary key
+#  course_id  :bigint           not null
+#  user_id    :bigint           not null
+#  rating     :integer
+#  review     :text
+#  price      :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Enrollment < ApplicationRecord
   #-------Relaciones de la tabla users------------------------------------------
   #-------------------------------------------------------------------------------

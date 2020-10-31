@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: lessons
+#
+#  id         :bigint           not null, primary key
+#  title      :string
+#  content    :text
+#  course_id  :bigint           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  slug       :string
+#
 class Lesson < ApplicationRecord
   #-------Relaciones de la tabla courses------------------------------------------
   #hace referencia que la tabla lessons tiene un solo curso asociado
